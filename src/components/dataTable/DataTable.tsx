@@ -4,7 +4,6 @@ import {
   GridToolbar,
 } from "@mui/x-data-grid";
 import "./dataTable.scss";
-import { Link } from "react-router-dom";
 
 type Props = {
   columns: GridColDef[];
@@ -19,7 +18,7 @@ const DataTable = (props: Props) => {
     field: "availability",
     headerName: "Availability",
     width: 100,
-    renderCell: (params) => {
+    renderCell: () => {
       return (
         <div className="action">
       
