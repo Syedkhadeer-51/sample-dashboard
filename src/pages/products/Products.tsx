@@ -9,22 +9,22 @@ const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
   {
     field: "img",
-    headerName: "Image",
+    headerName: "User",
     width: 100,
     renderCell: (params) => {
       return <img src={params.row.img || "/noavatar.png"} alt="" />;
     },
   },
   {
-    field: "title",
+    field: "location",
     type: "string",
-    headerName: "Title",
+    headerName: "Location",
     width: 250,
   },
   {
-    field: "color",
+    field: "agent",
     type: "string",
-    headerName: "Color",
+    headerName: "Agent",
     width: 150,
   },
   {
@@ -33,53 +33,18 @@ const columns: GridColDef[] = [
     headerName: "Price",
     width: 200,
   },
-  {
-    field: "producer",
-    headerName: "Producer",
-    type: "string",
-    width: 200,
-  },
-  {
-    field: "createdAt",
-    headerName: "Created At",
-    width: 200,
-    type: "string",
-  },
-  {
-    field: "inStock",
-    headerName: "In Stock",
-    width: 150,
-    type: "boolean",
-  },
 ];
 
 const Products = () => {
   const [open, setOpen] = useState(false);
 
-  // TEST THE API
-
-  // const { isLoading, data } = useQuery({
-  //   queryKey: ["allproducts"],
-  //   queryFn: () =>
-  //     fetch("http://localhost:8800/api/products").then(
-  //       (res) => res.json()
-  //     ),
-  // });
-
   return (
     <div className="products">
       <div className="info">
-        <h1>Products</h1>
-        <button onClick={() => setOpen(true)}>Add New Products</button>
+        <h1>Properties</h1>
+        <button onClick={() => setOpen(true)}>Add New Properties</button>
       </div>
       <DataTable slug="products" columns={columns} rows={products} />
-      {/* TEST THE API */}
-
-      {/* {isLoading ? (
-        "Loading..."
-      ) : (
-        <DataTable slug="products" columns={columns} rows={data} />
-      )} */}
       {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
     </div>
   );
